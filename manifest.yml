@@ -1,0 +1,8 @@
+applications:
+- path: target/EurekaServer.0.0.1-SNAPSHOT.jar
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: EurekaServer
+  host: EurekaServer
+  disk_quota: 512M
