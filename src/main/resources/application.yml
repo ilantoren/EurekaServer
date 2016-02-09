@@ -7,9 +7,26 @@ spring:
      
 eureka:
   instance:
-    hostname: ${vcap.application.uris[0]:localhost}
+    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+       defaultZone: ${server.port}/eureka/
+       
+---
+
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    nonSecurePort: 80
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaServer.mybluemix.net
+      instance:
+        hostname: eurekaServer.mybluemix.net
+        metadataMap:
+          instanceId: d3dd1011-9871-4cd7-bca0-1174fc997537
